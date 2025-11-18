@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
             color: white;
             min-height: 100vh;
             padding: 20px;
-            direction: rtl;
+            direction: ltr;
             overflow-x: hidden;
         }
         
@@ -50,6 +50,31 @@
             font-size: 1.2rem;
             color: #e0e0e0;
             margin-bottom: 20px;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
         }
         
         .content {
@@ -89,14 +114,14 @@
         
         .parts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
         
         .part {
             background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
             cursor: grab;
             transition: all 0.3s ease;
@@ -105,8 +130,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 140px;
+            height: 250px;
             touch-action: none;
+            position: relative;
         }
         
         .part:active {
@@ -116,16 +142,16 @@
         }
         
         .part-icon {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 10px;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
         }
         
         .anode-icon {
@@ -196,7 +222,7 @@
         .part-name {
             font-weight: bold;
             margin-top: 5px;
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: #fff;
         }
         
@@ -226,7 +252,7 @@
         .drop-zone {
             position: absolute;
             border: 2px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -434,28 +460,6 @@
             opacity: 1;
         }
         
-        .instructions {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .instructions h3 {
-            color: #ffcc00;
-            margin-bottom: 10px;
-        }
-        
-        .instructions ol {
-            padding-right: 20px;
-            line-height: 1.6;
-        }
-        
-        .instructions li {
-            margin-bottom: 8px;
-        }
-        
         .part-in-zone {
             width: 100%;
             height: 100%;
@@ -464,7 +468,7 @@
             justify-content: center;
             font-weight: bold;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
             position: relative;
         }
         
@@ -624,6 +628,40 @@
             opacity: 0.5;
         }
         
+        /* شريط النص الجديد في القسم العلوي */
+        .fuel-cell-explanation {
+            width: 100%;
+            margin: 0 auto 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .fuel-cell-explanation.active {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 200px;
+        }
+        
+        .fuel-cell-explanation h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .fuel-cell-explanation p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
         /* تحسينات للجوال */
         @media (max-width: 768px) {
             .content {
@@ -713,18 +751,18 @@
             }
             
             .part {
-                height: 120px;
-                padding: 10px;
+                height: 200px;
+                padding: 20px;
             }
             
             .part-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 0.8rem;
+                width: 120px;
+                height: 120px;
+                font-size: 1.2rem;
             }
             
             .part-name {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
             
             h1 {
@@ -733,6 +771,18 @@
             
             .subtitle {
                 font-size: 1rem;
+            }
+            
+            .fuel-cell-explanation {
+                padding: 15px;
+            }
+            
+            .fuel-cell-explanation h3 {
+                font-size: 1.1rem;
+            }
+            
+            .fuel-cell-explanation p {
+                fontSize: 0.9rem;
             }
         }
         
@@ -826,6 +876,80 @@
                 bottom: 110px;
             }
         }
+
+        /* زر تفعيل الصوت */
+        .audio-controls {
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .audio-btn {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .audio-btn:hover {
+            background: #f57c00;
+            transform: translateY(-2px);
+        }
+        
+        .audio-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .audio-enabled {
+            background: #4CAF50;
+        }
+        
+        .sound-test {
+            margin-top: 10px;
+        }
+        
+        .test-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        
+        .sound-status {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ffcc00;
+        }
+        
+        /* تأثيرات بصرية للنجاح */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: #f00;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -834,6 +958,29 @@
             <h1>Fuel Cell Assembly Simulation</h1>
             <p class="subtitle">Drag and drop components to build a functioning fuel cell and generate electricity</p>
         </header>
+        
+        <div class="audio-controls">
+            <button class="audio-btn" id="enableAudio">Click here to enable sound</button>
+            <div class="sound-test" id="soundTest" style="display: none;">
+                <p style="margin: 10px 0; color: #ffcc00;">Test sounds:</p>
+                <button class="test-btn" id="testDrag">Test drag sound</button>
+                <button class="test-btn" id="testDrop">Test drop sound</button>
+                <button class="test-btn" id="testSuccess">Test success sound</button>
+                <button class="test-btn" id="testFrustration">Test frustration sound</button>
+            </div>
+            <div class="sound-status" id="soundStatus"></div>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #ffcc00;">Please enable sound before starting the game</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Use:</h3>
+            <ol>
+                <li>Drag components from the parts area and drop them into any zone in the fuel cell</li>
+                <li>You can place any component in any zone, but the fuel cell will only work when all components are in their correct positions</li>
+                <li>When all components are correctly placed, electric current will flow and the bulb will light up</li>
+                <li>You can reset the simulation at any time using the "Reset Simulation" button</li>
+            </ol>
+        </div>
         
         <div class="content">
             <div class="parts-container">
@@ -866,6 +1013,14 @@
             
             <div class="assembly-area">
                 <h2>Assembly Area</h2>
+                
+                <!-- شريط النص الجديد في القسم العلوي من قسم التركيب -->
+                <div class="fuel-cell-explanation" id="fuelCellExplanation">
+                    <h3>What is a Fuel Cell?</h3>
+                    <p>A fuel cell is a device that generates electricity through a direct electrochemical reaction, rather than combustion.</p>
+                    <p>Inside the cell, hydrogen reacts with oxygen to produce electricity, a small amount of heat, and water as a clean byproduct.</p>
+                </div>
+                
                 <div class="fuel-cell">
                     <div class="cell-container">
                         <div class="fuel-cell-diagram">
@@ -889,16 +1044,6 @@
                 </div>
             </div>
         </div>
-        
-        <div class="instructions">
-            <h3>How to Use:</h3>
-            <ol>
-                <li>Drag components from the parts area and drop them into any zone in the fuel cell</li>
-                <li>You can place any component in any zone, but the fuel cell will only work when all components are in their correct positions</li>
-                <li>When all components are correctly placed, electric current will flow and the bulb will light up</li>
-                <li>You can reset the simulation at any time using the "Reset Simulation" button</li>
-            </ol>
-        </div>
     </div>
 
     <script>
@@ -914,10 +1059,238 @@
             const waterOutput = document.getElementById('waterOutput');
             const electronFlow = document.getElementById('electronFlow');
             const ionFlow = document.getElementById('ionFlow');
+            const fuelCellExplanation = document.getElementById('fuelCellExplanation');
+            const enableAudioBtn = document.getElementById('enableAudio');
+            const soundTest = document.getElementById('soundTest');
+            const testDragBtn = document.getElementById('testDrag');
+            const testDropBtn = document.getElementById('testDrop');
+            const testSuccessBtn = document.getElementById('testSuccess');
+            const testFrustrationBtn = document.getElementById('testFrustration');
+            const soundStatus = document.getElementById('soundStatus');
             
             let draggedPart = null;
             let placedParts = {};
             const totalParts = 4;
+            let audioEnabled = false;
+            let audioContext = null;
+            
+            // إنشاء سياق الصوت
+            function createAudioContext() {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    console.log('Audio context created successfully');
+                    return true;
+                } catch (error) {
+                    console.error('Failed to create audio context:', error);
+                    soundStatus.textContent = '❌ Browser does not support audio';
+                    return false;
+                }
+            }
+            
+            // إنشاء صوت بسيط
+            function createBeepSound(duration, frequency, volume, type = 'sine') {
+                if (!audioContext) return null;
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = frequency;
+                oscillator.type = type;
+                
+                gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + duration);
+                
+                return oscillator;
+            }
+            
+            // إنشاء صوت مفرقعات (نجاح)
+            function createSuccessSound() {
+                if (!audioContext) return;
+                
+                // سلسلة من النغمات للإشارة إلى النجاح
+                createBeepSound(0.1, 523, 0.2, 'square'); // C5
+                setTimeout(() => {
+                    if (audioEnabled) createBeepSound(0.1, 659, 0.2, 'square'); // E5
+                }, 100);
+                setTimeout(() => {
+                    if (audioEnabled) createBeepSound(0.1, 784, 0.2, 'square'); // G5
+                }, 200);
+                setTimeout(() => {
+                    if (audioEnabled) createBeepSound(0.2, 1047, 0.3, 'square'); // C6
+                }, 300);
+                
+                // تأثيرات إضافية - مفرقعات عشوائية
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        if (audioEnabled) {
+                            const freq = 200 + Math.random() * 1000;
+                            createBeepSound(0.05 + Math.random() * 0.1, freq, 0.1, 'square');
+                        }
+                    }, 400 + i * 50);
+                }
+            }
+            
+            // إنشاء صوت إحباط
+            function createFrustrationSound() {
+                if (!audioContext) return;
+                
+                // صوت منخفض وممتد للإحباط
+                createBeepSound(0.5, 80, 0.2, 'sawtooth');
+                setTimeout(() => {
+                    if (audioEnabled) createBeepSound(0.3, 60, 0.2, 'sawtooth');
+                }, 300);
+            }
+            
+            // تفعيل الصوت
+            enableAudioBtn.addEventListener('click', function() {
+                if (!audioEnabled) {
+                    if (createAudioContext()) {
+                        audioEnabled = true;
+                        enableAudioBtn.textContent = 'Sound enabled ✓';
+                        enableAudioBtn.classList.add('audio-enabled');
+                        soundTest.style.display = 'block';
+                        soundStatus.textContent = '✅ Sound enabled and ready to use';
+                        console.log('Sound enabled successfully');
+                    }
+                }
+            });
+            
+            // اختبار الأصوات
+            testDragBtn.addEventListener('click', function() {
+                if (audioEnabled) {
+                    createBeepSound(0.1, 300, 0.3);
+                }
+            });
+            
+            testDropBtn.addEventListener('click', function() {
+                if (audioEnabled) {
+                    createBeepSound(0.2, 200, 0.3);
+                }
+            });
+            
+            testSuccessBtn.addEventListener('click', function() {
+                if (audioEnabled) {
+                    createSuccessSound();
+                    createVisualEffects();
+                }
+            });
+            
+            testFrustrationBtn.addEventListener('click', function() {
+                if (audioEnabled) {
+                    createFrustrationSound();
+                }
+            });
+            
+            // تشغيل صوت السحب
+            function playDragSound() {
+                if (audioEnabled) {
+                    createBeepSound(0.1, 300, 0.3);
+                }
+            }
+            
+            // تشغيل صوت الإفلات
+            function playDropSound() {
+                if (audioEnabled) {
+                    createBeepSound(0.2, 200, 0.3);
+                }
+            }
+            
+            // تشغيل صوت التصحيح
+            function playCorrectSound() {
+                if (audioEnabled) {
+                    createBeepSound(0.3, 500, 0.3);
+                }
+            }
+            
+            // تشغيل صوت الخطأ
+            function playIncorrectSound() {
+                if (audioEnabled) {
+                    createBeepSound(0.5, 100, 0.3);
+                }
+            }
+            
+            // تشغيل صوت النجاح
+            function playSuccessSound() {
+                if (audioEnabled) {
+                    createSuccessSound();
+                }
+            }
+            
+            // تشغيل صوت الإحباط
+            function playFrustrationSound() {
+                if (audioEnabled) {
+                    createFrustrationSound();
+                }
+            }
+            
+            // إنشاء تأثيرات بصرية للنجاح
+            function createVisualEffects() {
+                // إنشاء عناصر الكونفيتي
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        confetti.style.left = Math.random() * 100 + 'vw';
+                        confetti.style.top = '-20px';
+                        confetti.style.backgroundColor = getRandomColor();
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        document.body.appendChild(confetti);
+                        
+                        // تحريك الكونفيتي
+                        const animation = confetti.animate([
+                            { top: '-20px', opacity: 1, transform: `rotate(${Math.random() * 360}deg)` },
+                            { top: '100vh', opacity: 0, transform: `rotate(${Math.random() * 720}deg)` }
+                        ], {
+                            duration: 1000 + Math.random() * 2000,
+                            easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)'
+                        });
+                        
+                        animation.onfinish = () => confetti.remove();
+                    }, i * 50);
+                }
+                
+                // إنشاء عناصر اللمعان
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const sparkle = document.createElement('div');
+                        sparkle.className = 'sparkle';
+                        sparkle.style.left = Math.random() * 100 + 'vw';
+                        sparkle.style.top = Math.random() * 100 + 'vh';
+                        sparkle.style.backgroundColor = getRandomBrightColor();
+                        document.body.appendChild(sparkle);
+                        
+                        // تحريك اللمعان
+                        const animation = sparkle.animate([
+                            { opacity: 0, transform: 'scale(0)' },
+                            { opacity: 1, transform: 'scale(1.5)' },
+                            { opacity: 0, transform: 'scale(0)' }
+                        ], {
+                            duration: 500 + Math.random() * 1000,
+                            easing: 'ease-out'
+                        });
+                        
+                        animation.onfinish = () => sparkle.remove();
+                    }, i * 100);
+                }
+            }
+            
+            // الحصول على لون عشوائي
+            function getRandomColor() {
+                const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            // الحصول على لون لامع عشوائي
+            function getRandomBrightColor() {
+                const colors = ['#ffcc00', '#ff9900', '#ff6600', '#ffff00', '#ffcc66', '#ff9966'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
             
             // إضافة أحداث السحب للأجزاء
             parts.forEach(part => {
@@ -925,6 +1298,9 @@
                     draggedPart = this;
                     this.classList.add('dragging');
                     e.dataTransfer.setData('text/plain', this.dataset.part);
+                    
+                    // تشغيل صوت السحب
+                    playDragSound();
                 });
                 
                 part.addEventListener('dragend', function() {
@@ -977,6 +1353,9 @@
                 currentTouch = e.touches[0];
                 
                 part.classList.add('dragging');
+                
+                // تشغيل صوت السحب
+                playDragSound();
             }
             
             // معالجة حركة اللمس
@@ -1029,6 +1408,9 @@
             
             // وضع الجزء في المنطقة
             function placePartInZone(zone, partType, zoneType) {
+                // تشغيل صوت الإفلات
+                playDropSound();
+                
                 // إضافة الجزء إلى المنطقة
                 zone.classList.add('filled');
                 
@@ -1052,10 +1434,16 @@
                     zone.classList.add('correct');
                     zone.classList.remove('incorrect');
                     componentLabel.classList.add('show');
+                    
+                    // تشغيل صوت التصحيح
+                    playCorrectSound();
                 } else {
                     zone.classList.add('incorrect');
                     zone.classList.remove('correct');
                     componentLabel.classList.add('show');
+                    
+                    // تشغيل صوت الخطأ
+                    playIncorrectSound();
                 }
                 
                 // تسجيل الجزء الموضوغ
@@ -1092,8 +1480,15 @@
                 if (allCorrect) {
                     activateFuelCell();
                     showMessage('Congratulations! You have successfully assembled the fuel cell. Electricity is now flowing and the bulb is lit.', true);
+                    
+                    // تشغيل صوت النجاح والتأثيرات البصرية
+                    playSuccessSound();
+                    createVisualEffects();
                 } else {
                     showMessage('All components are placed, but the fuel cell is not working correctly. Check the positions and try again.', 'error');
+                    
+                    // تشغيل صوت الإحباط
+                    playFrustrationSound();
                 }
             }
             
@@ -1106,6 +1501,7 @@
                 waterOutput.classList.add('active');
                 electronFlow.classList.add('active');
                 ionFlow.classList.add('active');
+                fuelCellExplanation.classList.add('active');
             }
             
             // وظيفة عرض الرسائل
@@ -1142,6 +1538,7 @@
                 waterOutput.classList.remove('active');
                 electronFlow.classList.remove('active');
                 ionFlow.classList.remove('active');
+                fuelCellExplanation.classList.remove('active');
                 message.textContent = 'Drag components to the assembly area';
                 message.className = 'message';
                 message.style.opacity = '1';
